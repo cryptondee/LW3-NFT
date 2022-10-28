@@ -20,7 +20,7 @@ export default function Home() {
       const signer = await getProviderOrSigner(true);
       const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi, signer);
       const tx = await nftContract.presaleMint({
-        value: utils.parseEther("0.001"),
+        value: utils.parseEther("0.01"),
       });
       setLoading(true);
       await tx.wait();
