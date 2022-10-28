@@ -1,4 +1,3 @@
-import { sign } from "crypto";
 import { Contract, providers, utils } from "ethers";
 import Head from "next/head";
 import React, { useEffect, useRef, useState } from "react";
@@ -35,7 +34,7 @@ export default function Home() {
       const signer = await getProviderOrSigner(true);
       const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi, signer);
       const tx = await nftContract.mint({
-        value: utils.parseEther("0.001"),
+        value: utils.parseEther("0.01"),
       });
       setLoading(true);
       await tx.wait();
